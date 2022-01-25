@@ -6,6 +6,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.rollbar.notifier.Rollbar;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 @RestController
 public class TestController {
 	
@@ -22,6 +25,10 @@ public class TestController {
 	@GetMapping("/welcome")
 	public String welcome() {
 		rollbar.info("Welcome Rollbar Logs");
+		rollbar.debug("Welcome debug");
+		rollbar.critical("welcome critical");
+		rollbar.warning("welcome warning");
+		rollbar.log("Welcome log");
 		return "Welcome";
 	}
 }
