@@ -11,6 +11,7 @@ import org.springframework.context.annotation.ComponentScan;
 })
 public class RollbarexampleApplication {
 
+//adding
 	public static void main(String[] args) {
 		SpringApplication.run(RollbarexampleApplication.class, args);
 	}
