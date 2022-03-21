@@ -1,24 +1,22 @@
 pipeline {
     agent any
-    stages {
 
-        stage("Build")
-        {
-            steps
-            {
-                script {
-                        echo "INFO: Build Stage"
-                    }
+    stages {
+        stage ('Clean Stage') {
+
+            steps {
+                withMaven(maven : 'maven_3_5_0') {
+                    sh 'mvn clean'
+                }
             }
         }
 
-        stage("Deploy")
-        {
-            steps
-            {
-                script {
-                            echo "INFO: Deploy Stage"
-                    }
+        stage ('Build Stage') {
+
+            steps {
+                withMaven(maven : 'maven_3_5_0') {
+                    sh 'mvn install'
+                }
             }
         }
     }
